@@ -34,15 +34,30 @@ def initialize_firebase():
         )
 
     else:
-        service_account_path = os.path.join(
-            BASE_DIR,
-            "backend",
-            "firebase-service-account.json"
-        )
+        service_account_path = os.getenv(
+                "FIREBASE_SERVICE_ACCOUNT_FILE"
+            )
 
-        cred = credentials.Certificate(
-            service_account_path
-        )
+            if not service_account_path:
+
+                render_secret_path = os.path.join(
+                    "/etc/secrets",
+                    "firebase-service-account.json"
+                )
+
+                if os.path.exists(render_secret_path):
+                    service_account_path = render_secret_path
+
+                else:
+                    service_account_path = os.path.join(
+                        BASE_DIR,
+                        "backend",
+                        "firebase-service-account.json"
+                    )
+
+            cred = credentials.Certificate(
+                service_account_path
+            )
 
     firebase_admin.initialize_app(cred)
 
