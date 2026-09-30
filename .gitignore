@@ -1,0 +1,26 @@
+# Python virtual environment
+venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Firebase private credentials
+backend/firebase-service-account.json
+
+# SQLite database
+*.db
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
