@@ -1,4 +1,4 @@
-# ?? Cloud Smart Plant Care
+# Cloud Smart Plant Care
 
 ### Cloud-Connected Plant Monitoring & Automatic Watering System
 
@@ -8,7 +8,7 @@ This project demonstrates the integration of **IoT, Cloud Computing, REST APIs, 
 
 ---
 
-## ?? Project Overview
+## Project Overview
 
 Traditional plant watering requires regular manual monitoring and can result in overwatering or underwatering.
 
@@ -31,7 +31,7 @@ A Python-based virtual IoT sensor is used instead of physical hardware, making t
 
 ---
 
-## ?? Objectives
+## Objectives
 
 1. Build an IoT-based plant monitoring system.
 2. Connect a virtual sensor to a cloud backend.
@@ -45,9 +45,9 @@ A Python-based virtual IoT sensor is used instead of physical hardware, making t
 
 ---
 
-## ? Key Features
+##  Key Features
 
-### ??? Sensor Monitoring
+###  Sensor Monitoring
 
 The system monitors:
 
@@ -56,7 +56,7 @@ The system monitors:
 * Humidity
 * Light Level
 
-### ?? Automatic Watering
+###  Automatic Watering
 
 When:
 
@@ -70,23 +70,23 @@ Example:
 
 ```text
 Threshold = 35%
-
+    |
 Moisture = 29%
-        ?
+    |  
 Automatic watering starts
-        ?
+    |
 Virtual pump ON
-        ?
+    |   
 Moisture increases
-        ?
+    |
 Pump OFF
 ```
 
-### ?? Manual Watering
+###  Manual Watering
 
 Users can manually start watering from the dashboard.
 
-### ?? Dashboard
+###  Dashboard
 
 The dashboard displays:
 
@@ -98,85 +98,85 @@ The dashboard displays:
 * Watering history
 * Alerts
 
-### ?? Alerts
+###  Alerts
 
 The system generates alerts when low soil moisture is detected.
 
-### ?? Authentication
+###  Authentication
 
 Firebase Authentication provides email/password login for users.
 
-### ?? Cloud Storage
+### Cloud Storage
 
 Sensor readings, device information, watering events, and alerts are stored using Firebase Firestore.
 
 ---
 
-# ??? System Architecture
+#  System Architecture
 
 ```text
                   VIRTUAL IoT SENSOR
-                         ¦
-                         ¦ HTTPS / REST
-                         ?
+                         Â¦
+                         Â¦ HTTPS / REST
+                         |
                 +------------------+
-                ¦  FLASK BACKEND   ¦
-                ¦     RENDER       ¦
+                Â¦  FLASK BACKEND   Â¦
+                Â¦     RENDER       Â¦
                 +------------------+
-                         ¦
+                         Â¦
               +---------------------+
-              ¦                     ¦
-              ?                     ?
+              Â¦                     Â¦
+              |                     |
        AUTOMATION ENGINE       FIRESTORE
-              ¦                     ¦
-              ¦                     ¦
-              ?                     ¦
-       VIRTUAL WATER PUMP            ¦
-                                    ¦
-                                    ?
+              Â¦                     Â¦
+              Â¦                     Â¦
+              |                     Â¦
+       VIRTUAL WATER PUMP            Â¦
+                                    Â¦
+                                    |
                            CLOUD DATA STORAGE
-                                    ¦
-                                    ?
+                                    Â¦
+                                    |
                           REACT WEB DASHBOARD
-                                    ¦
-                                    ?
+                                    Â¦
+                                    |
                          FIREBASE HOSTING
-                                    ¦
-                                    ?
+                                    Â¦
+                                    |
                            AUTHENTICATED USER
 ```
 
 ---
 
-# ?? Cloud Architecture
+#  Cloud Architecture
 
 ```text
 User
- ¦
- ?
+ Â¦
+ |
 Firebase Hosting
- ¦
- ?
+ Â¦
+ |
 React Frontend
- ¦
- ¦ HTTPS REST API
- ?
+ Â¦
+ Â¦ HTTPS REST API
+ |
 Render
- ¦
- ?
+ Â¦
+ |
 Flask Backend
- ¦
- +--------------? Firebase Firestore
- ¦
- +--------------? Automation Engine
-                         ¦
-                         ?
+ Â¦
+ +--------------> Firebase Firestore
+ Â¦
+ +--------------> Automation Engine
+                         Â¦
+                         |
                     Virtual Pump
 ```
 
 ---
 
-# ??? Technology Stack
+#  Technology Stack
 
 | Layer                 | Technology              |
 | --------------------- | ----------------------- |
@@ -197,7 +197,7 @@ Flask Backend
 
 ---
 
-# ?? Cloud Services Used
+#  Cloud Services Used
 
 ## Firebase
 
@@ -246,7 +246,7 @@ Health endpoint:
 
 ---
 
-# ?? IoT Sensor Simulation
+#  IoT Sensor Simulation
 
 A Python program simulates a real IoT device.
 
@@ -271,19 +271,19 @@ Example:
 
 ```text
 Virtual Sensor
-      ?
+      |
 HTTP POST
-      ?
+      |
 Flask REST API
-      ?
+      |
 Automation Engine
-      ?
+      |
 Firestore
 ```
 
 ---
 
-# ?? Automatic Watering Logic
+#  Automatic Watering Logic
 
 The watering engine continuously evaluates soil moisture.
 
@@ -311,7 +311,7 @@ This demonstrates **event-driven automation**.
 
 ---
 
-# ?? Database Design
+#  Database Design
 
 ## Device
 
@@ -365,7 +365,7 @@ created_at
 
 ---
 
-# ?? REST API
+#  REST API
 
 | Method | Endpoint                             | Purpose                   |
 | ------ | ------------------------------------ | ------------------------- |
@@ -384,43 +384,43 @@ created_at
 
 ---
 
-# ?? Project Structure
+#  Project Structure
 
 ```text
 Cloud-Smart-Plant-Care/
-¦
+Â¦
 +-- sensor_simulator/
-¦   +-- simulator.py
-¦   +-- config.py
-¦
+Â¦   +-- simulator.py
+Â¦   +-- config.py
+Â¦
 +-- backend/
-¦   +-- app.py
-¦   +-- models/
-¦   +-- routes/
-¦   +-- services/
-¦   +-- utils/
-¦   +-- firebase-service-account.json
-¦
+Â¦   +-- app.py
+Â¦   +-- models/
+Â¦   +-- routes/
+Â¦   +-- services/
+Â¦   +-- utils/
+Â¦   +-- firebase-service-account.json
+Â¦
 +-- automation/
-¦   +-- watering_engine.py
-¦   +-- plant_profiles.py
-¦
+Â¦   +-- watering_engine.py
+Â¦   +-- plant_profiles.py
+Â¦
 +-- frontend/
-¦   +-- src/
-¦   +-- public/
-¦   +-- package.json
-¦   +-- vite.config.js
-¦
+Â¦   +-- src/
+Â¦   +-- public/
+Â¦   +-- package.json
+Â¦   +-- vite.config.js
+Â¦
 +-- cloud/
-¦   +-- database_service.py
-¦   +-- auth_service.py
-¦
+Â¦   +-- database_service.py
+Â¦   +-- auth_service.py
+Â¦
 +-- tests/
 +-- sample_data/
 +-- screenshots/
 +-- docs/
 +-- reports/
-¦
+Â¦
 +-- requirements.txt
 +-- .env.example
 +-- .gitignore
@@ -431,7 +431,7 @@ Cloud-Smart-Plant-Care/
 
 ---
 
-# ?? Local Setup
+#  Local Setup
 
 ## 1. Clone Repository
 
@@ -494,7 +494,7 @@ python sensor_simulator\simulator.py
 
 ---
 
-# ?? Cloud Deployment
+#  Cloud Deployment
 
 ## Frontend
 
@@ -540,7 +540,7 @@ Firebase Firestore
 
 ---
 
-# ?? Security
+#  Security
 
 The project follows basic security practices:
 
@@ -562,7 +562,7 @@ must never be committed to GitHub.
 
 ---
 
-# ?? Testing
+#  Testing
 
 The project was tested using:
 
@@ -621,7 +621,7 @@ Firebase Firestore
 
 ---
 
-# ?? Cloud Computing Concepts Demonstrated
+# Cloud Computing Concepts Demonstrated
 
 This project demonstrates the following concepts:
 
@@ -683,7 +683,7 @@ Git and GitHub are used for source-code management and proof of work.
 
 ---
 
-# ?? Screenshots
+#  Screenshots
 
 Project screenshots are available in:
 
@@ -706,7 +706,7 @@ Important screenshots include:
 
 ---
 
-# ?? Future Enhancements
+#  Future Enhancements
 
 The project can be extended with:
 
@@ -727,7 +727,7 @@ The project can be extended with:
 
 ---
 
-# ?? Academic Value
+#  Academic Value
 
 This project demonstrates how IoT systems can be integrated with cloud computing infrastructure.
 
@@ -735,15 +735,15 @@ Instead of relying only on a local application, the system demonstrates:
 
 ```text
 IoT
- ?
+ |
 Internet
- ?
+ |
 Cloud API
- ?
+ |
 Cloud Database
- ?
+ |
 Automation
- ?
+ |
 Web Application
 ```
 
@@ -751,7 +751,7 @@ It therefore provides practical exposure to modern cloud application architectur
 
 ---
 
-# ????? Project Information
+# Project Information
 
 **Project:** Cloud Smart Plant Care
 
@@ -771,6 +771,6 @@ It therefore provides practical exposure to modern cloud application architectur
 
 ---
 
-# ?? License
+#  License
 
 This project was developed for educational and academic purposes.
