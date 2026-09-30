@@ -13,8 +13,9 @@ BASE_DIR = os.path.dirname(
 def initialize_firebase():
     """
     Initialize Firebase using:
-    1. FIREBASE_SERVICE_ACCOUNT environment variable when deployed
-    2. Local service-account JSON file during development
+    1. FIREBASE_SERVICE_ACCOUNT environment variable
+    2. Render Secret File
+    3. Local service-account JSON file
     """
 
     if firebase_admin._apps:
@@ -34,30 +35,24 @@ def initialize_firebase():
         )
 
     else:
-        service_account_path = os.getenv(
-                "FIREBASE_SERVICE_ACCOUNT_FILE"
+        render_secret_path = os.path.join(
+            "/etc/secrets",
+            "firebase-service-account.json"
+        )
+
+        if os.path.exists(render_secret_path):
+            service_account_path = render_secret_path
+
+        else:
+            service_account_path = os.path.join(
+                BASE_DIR,
+                "backend",
+                "firebase-service-account.json"
             )
 
-            if not service_account_path:
-
-                render_secret_path = os.path.join(
-                    "/etc/secrets",
-                    "firebase-service-account.json"
-                )
-
-                if os.path.exists(render_secret_path):
-                    service_account_path = render_secret_path
-
-                else:
-                    service_account_path = os.path.join(
-                        BASE_DIR,
-                        "backend",
-                        "firebase-service-account.json"
-                    )
-
-            cred = credentials.Certificate(
-                service_account_path
-            )
+        cred = credentials.Certificate(
+            service_account_path
+        )
 
     firebase_admin.initialize_app(cred)
 
