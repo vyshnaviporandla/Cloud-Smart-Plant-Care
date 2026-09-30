@@ -17,7 +17,7 @@ import {
 import { auth } from "./firebase";
 import "./App.css";
 
-const API_BASE = "http://127.0.0.1:5000/api";
+const API_BASE = "https://cloud-smart-plant-care.onrender.com/api";
 const DEVICE_ID = "PLANT-001";
 
 function App() {

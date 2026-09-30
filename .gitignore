@@ -23,4 +23,4 @@ backend/firebase-service-account.json
 Thumbs.db
 
 # Logs
-*.log
+*.logfrontend/.firebase/

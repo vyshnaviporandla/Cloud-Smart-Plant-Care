@@ -10,7 +10,7 @@ import requests
 # CONFIGURATION
 # ============================================================
 
-API_URL = "http://127.0.0.1:5000/api/sensors/data"
+API_URL = "https://cloud-smart-plant-care.onrender.com/api/sensors/data"
 DEVICE_ID = "PLANT-001"
 
 SEND_INTERVAL = 5
